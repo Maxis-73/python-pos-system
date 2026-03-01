@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     POSTGRES_PORT: str
     POSTGRES_DB: str
 
+    # Security
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+
     @property
     def DATABASE_URL(self) -> str:
         return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
